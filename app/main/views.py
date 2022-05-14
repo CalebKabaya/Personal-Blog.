@@ -1,7 +1,7 @@
 from . import main
 from flask import render_template,request,redirect,url_for,abort
-from ..models import  User
-from .forms import UpdateProfile
+from ..models import  Blog, User
+from .forms import UpdateProfile,BlogForm
 from .. import db,photos
 from flask_login import login_required,current_user
 
@@ -57,3 +57,18 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+@main.route('/create_new', methods = ['POST','GET'])
+@login_required
+def new_blog():
+    form = BlogForm()
+    if form.validate_on_submit():
+        title = form.title.data
+        post = form.post.data
+        category = form.category.data
+        user_id = current_user
+        new_blog_object = Blog(post=post,user_id=current_user._get_current_object().id,category=category,title=title)
+        new_blog_object.save_p()
+        return redirect(url_for('main.index'))
+        
+    return render_template('main/blog.html', form = form)
