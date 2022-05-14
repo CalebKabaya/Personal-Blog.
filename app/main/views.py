@@ -13,12 +13,21 @@ from flask_login import login_required,current_user
 # from .. import db,photos
 
 # from flask_login import login_required,current_user
-
 @main.route('/')
 def index():
+    blogs = Blog.query.all()
+    technology  = Blog.query.filter_by(category = 'Technology').all() 
+    health = Blog.query.filter_by(category = 'Health').all()
+    lifestyle= Blog.query.filter_by(category = 'Lifestyle').all()
+    food= Blog.query.filter_by(category = 'Food').all()
 
 
-    return render_template('main/index.html')
+    return render_template('main/index.html',blogs =blogs,technology =technology, health = health, lifestyle=  lifestyle, food= food)
+# @main.route('/')
+# def index():
+
+
+#     return render_template('main/index.html')
 
 @main.route('/user/<uname>')
 def profile(uname):

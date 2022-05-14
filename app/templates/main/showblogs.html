@@ -1,0 +1,25 @@
+{% extends 'main/base.html'%}
+{% import 'macros.html' as macro %}
+{% block content%}
+ <div class="container">
+    <div class="tab-content">
+      <div  class="container tab-pane active" id="all"><br>
+          {{ macro.display(blogs) }}
+      </div>
+      <div  class="container tab-pane fade" id="event"><br>
+          {{ macro.display(technology)}}
+      </div>
+      <div  class="container tab-pane fade" id="jobs"><br>
+          {{ macro.display(food) }}
+      </div>
+      <div  class="container tab-pane fade" id="ads"><br>
+          {{ macro.display(lifestyle) }}
+          
+      </div>
+      <div  class="container tab-pane fade" id="ads"><br>
+        {{ macro.display(health) }}
+        
+    </div>
+  </div>
+  </div>
+  {% endblock%}

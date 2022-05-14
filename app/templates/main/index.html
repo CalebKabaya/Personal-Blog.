@@ -1,4 +1,6 @@
 {% extends 'main/base.html'%}
+{% import 'main/macros.html' as macro %}
+
 
 {% block content %}
 
@@ -17,5 +19,45 @@
      </div>
    </div>
  </div>
-
+<div class="container">
+  <h3 class="text-center" id="abouttitle">Our Blogs</h3>
+  <div class="container">
+    <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
+      <li class="nav-item">
+        <a id="btns" class="nav-link" data-toggle="tab" href="#blogs"><strong>All Blogs</strong> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn btn-outline-dark" id="btns" data-toggle="tab" href="#technology">Technology Blogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="btns" data-toggle="tab" href="#food">Food Blogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="btns" data-toggle="tab" href="#lifestyle">Lifestyle Blogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="btns" data-toggle="tab" href="#health">Health Blogs</a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div  class="container tab-pane active" id="blogs"><br>
+        {{ macro.display(blogs) }}
+    </div>
+    <div  class="container tab-pane fade" id="technology"><br>
+        {{ macro.display(technology)}}
+    </div>
+    <div  class="container tab-pane fade" id="food"><br>
+        {{ macro.display(food) }}
+    </div>
+    <div  class="container tab-pane fade" id="lifestyle"><br>
+        {{ macro.display(lifestyle) }}
+        
+    </div>
+    <div  class="container tab-pane fade" id="health"><br>
+      {{ macro.display(health) }}
+      
+  </div>
+</div>
+</div>
 {% endblock%}
