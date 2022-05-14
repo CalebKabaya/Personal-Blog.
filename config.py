@@ -5,6 +5,8 @@ class Config:
 
     # API_KEY = os.environ.get('API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
     
 
 
@@ -16,7 +18,9 @@ class ProdConfig(Config):
 
 
 class DevConfig(Config):
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://'
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Mbuguack@localhost/blogdb'
     DEBUG = True
 
 config_options = {
