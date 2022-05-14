@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#col1 img{
+border-radius:100% 0% 100% 0% / 0% 100% 0% 100%    ;
+}
+#header{
+    /* background-color: black; */
+}
+.row{
+    padding-top: 100px;
+    flex-basis: 50%;
+    margin: auto;
+
+}
+#col1 img{
+   width: 100%;
+}
+#col2{
+    /* flex-basis: 50%; */
+    margin: auto;
+    padding-right: 40px;
+    padding: 10px;
+
+}
+#col2 h3{
+    font-size: 50px;
+    font-weight: bolder;
+}
