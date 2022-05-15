@@ -1,10 +1,12 @@
 from . import main
 from flask import render_template,request,redirect,url_for,abort,flash
-from ..models import  Blog, User,Comment
+from ..models import  Blog, User,Comment,Subscriber
 from .forms import UpdateProfile,BlogForm,CommentForm
 from .. import db,photos
 from flask_login import login_required,current_user
 from app.requests import get_quotes
+from ..email import mail_message
+
 
 
 
@@ -73,6 +75,7 @@ def update_pic(uname):
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required
 def new_blog():
+    subscribers = Subscriber.query.all()
     form = BlogForm()
     if form.validate_on_submit():
         title = form.title.data
@@ -81,6 +84,8 @@ def new_blog():
         user_id = current_user
         new_blog_object = Blog(post=post,user_id=current_user._get_current_object().id,category=category,title=title)
         new_blog_object.save_p()
+        for subscriber in subscribers:
+            mail_message("New Blog Post","email/welcome_user",subscriber.email,new_blog_object=new_blog_object)
         return redirect(url_for('main.index'))
         
     return render_template('main/blog.html', form = form)
@@ -125,3 +130,13 @@ def updateblog(blog_id):
         form.title.data = blog.title
         form.post.data = blog.post
     return render_template('blog.html', form = form)
+
+
+@main.route('/subscribe',methods = ['POST','GET'])
+def subscribe():
+    email = request.form.get('subscriber')
+    new_subscriber = Subscriber(email = email)
+    new_subscriber.save_subscriber()
+    mail_message("Subscribed to D-Blog","email/welcome_user",new_subscriber.email,new_subscriber=new_subscriber)
+    flash('Sucessfuly subscribed')
+    return redirect(url_for('main.index'))

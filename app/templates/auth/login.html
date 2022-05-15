@@ -4,10 +4,12 @@
 
 
 {% block content %}
-<div class="container">
+<div class="container" >
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-6">
+            <img src="{{url_for('static', filename='7.jpg')}}" /> 
+        </div>
+        <div class="col-md-6 "id="login">
             <!-- flash messege -->
             {% for message in get_flashed_messages() %}
             <div class="alert alert-danger">
@@ -19,7 +21,6 @@
             {{wtf.quick_form(login_form)}}
             <p>Don't have an account? <a href="{{url_for('auth.register')}}">Sign UP Here</a></p>
         </div>
-        <div class="col-md-2"></div>
     </div>
 </div>
 {% endblock%}
