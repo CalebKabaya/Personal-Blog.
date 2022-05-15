@@ -4,6 +4,8 @@ from ..models import  Blog, User
 from .forms import UpdateProfile,BlogForm
 from .. import db,photos
 from flask_login import login_required,current_user
+from app.requests import get_quotes
+
 
 
 
@@ -15,6 +17,7 @@ from flask_login import login_required,current_user
 # from flask_login import login_required,current_user
 @main.route('/')
 def index():
+    quotes = get_quotes()
     blogs = Blog.query.all()
     technology  = Blog.query.filter_by(category = 'Technology').all() 
     health = Blog.query.filter_by(category = 'Health').all()
@@ -22,7 +25,7 @@ def index():
     food= Blog.query.filter_by(category = 'Food').all()
 
 
-    return render_template('main/index.html',blogs =blogs,technology =technology, health = health, lifestyle=  lifestyle, food= food)
+    return render_template('main/index.html',blogs =blogs,technology =technology, health = health, lifestyle=  lifestyle, food= food,quotes=quotes)
 # @main.route('/')
 # def index():
 

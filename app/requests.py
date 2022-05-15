@@ -1,14 +1,12 @@
 
-import urllib.request,json
-# import requests 
+import requests,json
 
-# Getting api key
-api_key = None
-
-
-def configure_request(app):
-    global api_key
-    # api_key = app.config['API_KEY']
+def get_quotes():
+    response = requests.get('http://quotes.stormconsultancy.co.uk/random.json')
+    if response.status_code == 200:
+        quote = response.json()
+        # print(quote)
+        return quote
 
 
     
