@@ -93,8 +93,7 @@ def comment(blog_id):
     if form.validate_on_submit():
         comment = form.comment.data 
         blog_id = blog_id
-        user_id = current_user._get_current_object().id
-        new_comment = Comment(comment = comment,user_id = user_id,blog_id = blog_id)
+        new_comment = Comment(comment = comment,blog_id = blog_id)
         new_comment.save_c()
         return redirect(url_for('.comment', blog_id = blog_id))
     return render_template('main/comment.html', form =form,  blog =  blog,all_comments=all_comments) 

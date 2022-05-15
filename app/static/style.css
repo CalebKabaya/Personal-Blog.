@@ -29,3 +29,12 @@ border-radius:100% 0% 100% 0% / 0% 100% 0% 100%    ;
     font-size: 50px;
     font-weight: bolder;
 }
+#btns{
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+}
+#btns:hover{
+background-color: aliceblue;
+color: red;
+}

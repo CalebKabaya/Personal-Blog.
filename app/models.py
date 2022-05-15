@@ -16,7 +16,7 @@ class User(UserMixin,db.Model):
     pass_secure = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     blogs = db.relationship('Blog', backref='user', lazy='dynamic')
-    comment = db.relationship('Comment', backref='user', lazy='dynamic')
+    # comment = db.relationship('Comment', backref='user', lazy='dynamic')
 
 
 
@@ -70,8 +70,9 @@ class Comment(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.Text(),nullable = False)
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
     blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'),nullable = False)
+    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
 
     def save_c(self):
         db.session.add(self)
