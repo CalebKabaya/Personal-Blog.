@@ -15,7 +15,9 @@
         asperiores unde facere nisi incidunt perferendis est voluptatum consequuntur quasi quidem dignissimos sequi
         deleniti eaque.</p>
       <div class="btns">
-        <button type="button" class="btn btn-danger btn-lg">Learn More!</button>
+        <a href="#about-header">
+          <button type="button" class="btn btn-danger btn-lg">Learn More!</button>
+        </a>
 
       </div>
     </div>
@@ -85,30 +87,44 @@
 
     </div>
   </div>
-  
-    
-    
+
+
+
+</div>
+<div class="container">
+  <h3 id="about-header">About</h3>
+  <div class="row">
+    <div class="col-md-8" id="about">
+      <img src="{{url_for('static', filename='11.jpg')}}" />
+
+    </div>
+    <div class="col-md-4" id="card2">
+      <h3>Welcome To KalebsBlog,We're glad and greatfull you're here.</h3>
+      <p>This is a personal blogging website where we create and share opinions and our users can read and comment on
+        them. Additionally, we displays random quotes to inspire our users. </p>
+    </div>
+  </div>
 </div>
 {% endif %}
 <div class="container mt-5" id="email-cont">
   <h3>Subscribe To Our Blog Posts</h3>
   {% for message in get_flashed_messages() %}
   <div class="alert alert-success">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  {{ message }}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{ message }}
   </div>
   {% endfor %}
   <form class="form-inline" action="{{url_for('main.subscribe')}}" method="POST">
-      <div class="md-form form-group" id="email">
-          <label class="white-color">Email Address...</label>
-          <input type="email"  class="form-control " name ="subscriber" required>
-      </div>
-      <div class="md-form form-group">
-          <button class="btn btn-sm btn-outline-info" id="subs">Subscribe</button>
-      </div>
+    <div class="md-form form-group" id="email">
+      <label class="white-color">Email Address...</label>
+      <input type="email" class="form-control " name="subscriber" required>
+    </div>
+    <div class="md-form form-group">
+      <button class="btn btn-sm btn-outline-info" id="subs">Subscribe</button>
+    </div>
   </form>
 </div>
-<footer class="page-footer bg-dark text-white font-small blue">
+<footer class="page-footer bg-dark text-white font-small blue mt-5">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2022 Copyright: KalebsBlog
