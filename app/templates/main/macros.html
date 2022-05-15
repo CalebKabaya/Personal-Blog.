@@ -3,17 +3,18 @@
     <div class="row">
         {% if blogs %}
         {% for category in blogs %}
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="thumbnail" id="carded">
-                <h5 class="card-header">{{category.title}}</h5>
+                <h5 class="card-header text-center" id="title">{{category.title}}</h5>
                 <div class="card-body">
-                    <p>{{category.post}}</p>
-                    <p class="text-center"> Category: {{category.category}}</p>
+                    <p class="post"> {{category.post}}</p>
+                    <p class="text-center" id="cate"> Category: {{category.category}}</p>
                     <footer class="blockquote-footer text-center"> Posted by: {{category.user.username}}</footer>
                     <div>
                         <span class="foot">{{category.comment.count()}} Comments</span>
                     </div>
                     <a href="{{url_for('main.comment',blog_id = category.id)}}" class="btn btn-danger" id="comment"> Comment</a>
+
                 
                 </div>
             </div>

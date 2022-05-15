@@ -1,5 +1,5 @@
 from . import main
-from flask import render_template,request,redirect,url_for,abort
+from flask import render_template,request,redirect,url_for,abort,flash
 from ..models import  Blog, User,Comment
 from .forms import UpdateProfile,BlogForm,CommentForm
 from .. import db,photos
@@ -97,3 +97,31 @@ def comment(blog_id):
         new_comment.save_c()
         return redirect(url_for('.comment', blog_id = blog_id))
     return render_template('main/comment.html', form =form,  blog =  blog,all_comments=all_comments) 
+
+@main.route('/blog/<blog_id>/delete', methods = ['POST'])
+@login_required
+def delete_post(blog_id):
+    blog = Blog.query.get(blog_id)
+    if blog.user != current_user:
+        abort(403)
+    blog.delete()
+    flash("You have deleted your Blog succesfully!")
+    return redirect(url_for('main.index'))
+
+@main.route('/blog/<blog_id>/update', methods = ['GET','POST'])
+@login_required
+def updateblog(blog_id):
+    blog = Blog.query.get(blog_id)
+    if blog.user != current_user:
+        abort(403)
+    form = BlogForm()
+    if form.validate_on_submit():
+        blog.title = form.title.data
+        blog.post = form.post.data
+        db.session.commit()
+        flash("You have updated your Blog!")
+        return redirect(url_for('main.blog',id = blog.id)) 
+    if request.method == 'GET':
+        form.title.data = blog.title
+        form.post.data = blog.post
+    return render_template('blog.html', form = form)

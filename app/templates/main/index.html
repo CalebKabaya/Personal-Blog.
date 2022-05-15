@@ -65,11 +65,13 @@
 </div>
 {% if quotes %}
 
-<div class="container">
-  <h3 class="text-center">Quote of the Day</h3>
-  
-      <div class="card cardquote">
-        <div class="card-title">
+<div class="container" id="qoutes">
+  <div class="row">
+    <h3 class="text-center text-white" id="h3">Get Inspired By Quote Of The Day</h3>
+
+    <div class="col-md-6 h-100" id="quoteid">
+      <div class="card cardquote" id="quote2">
+        <div class="card-title" id="quote">
           <h4>A quote by: <span style="color: rgb(3, 3, 3)">{{quotes.author}}</span> </h4>
         </div>
         <p class="card-text">{{quotes.quote}}</p>
@@ -77,6 +79,14 @@
           <button type="button" class="btn btn-danger">Quote Link!!!</button>
         </a>
       </div>
+    </div>
+    <div class="col-md-6 h-100" id="forimg">
+      <img src="{{url_for('static', filename='6.png')}}" />
+
+    </div>
+  </div>
+  
+    
     
 </div>
 {% endif %}

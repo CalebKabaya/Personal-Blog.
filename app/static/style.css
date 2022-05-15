@@ -38,3 +38,47 @@ border-radius:100% 0% 100% 0% / 0% 100% 0% 100%    ;
 background-color: aliceblue;
 color: red;
 }
+#title{
+    font-size: 26px;
+    font-weight: bold;
+    
+}
+#cate{
+    font-style: italic;
+    font-size: 20px;
+}
+.post{
+    font-size: 22px;
+}
+#quote2 h4{
+    font-size: 26px;
+    font-weight: bold;
+
+}
+#quote2 p{
+    font-style: italic;
+    font-size: 20px;
+    padding: 10px 10px;
+
+}
+#forimg{
+    height: 30vh;
+    /* width: 100%; */
+}
+#qoutes{
+    background-color: #faa12f;
+    border-radius: 57% 43% 57% 43% / 100% 0% 100% 0% ;
+}
+/* #quoteid{
+    background-color: #e58027
+    ;
+
+} */
+#quote2{
+   background-color: transparent;
+
+}
+#h3{
+    font-size: 26px;
+    font-weight: bolder;
+}
