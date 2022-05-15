@@ -48,7 +48,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class Blog(db.Model):
-    __tablename__ = 'pitches'
+    __tablename__ = 'blogs'
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(255),nullable = False)
     post = db.Column(db.Text(), nullable = False)
