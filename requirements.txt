@@ -1,6 +1,8 @@
 alembic==1.7.7
 autopep8==1.6.0
 blinker==1.4
+certifi==2021.10.8
+charset-normalizer==2.0.12
 click==7.1.2
 dnspython==2.2.1
 dominate==2.6.0
@@ -27,8 +29,10 @@ markdown2==2.4.3
 MarkupSafe==2.0.1
 psycopg2==2.9.3
 pycodestyle==2.8.0
+requests==2.27.1
 SQLAlchemy==1.4.36
 toml==0.10.2
+urllib3==1.26.9
 visitor==0.1.3
 Werkzeug==0.16.1
 WTForms==3.0.1
