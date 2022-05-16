@@ -1,12 +1,38 @@
-# Flask Strater Files
 
 ## Description
 
-Basic flask application starter files
+This is a personal blogging website where we create and share opinions and our users can read and comment on them. Additionally, we displays random quotes to inspire our users.
 
 ## Author
 
 [Caleb Kabaya](https://github.com/CalebKabaya)
+
+## Live Link
+[View Site](https://kalebsblog.herokuapp.com/)
+
+## Screenshots
+
+<img src="https://raw.githubusercontent.com/Owiti-Charles/D-Blog/master/app/static/home.png" width="900px" height="440px">
+
+## User Story
+
+* A user can view the most recent posts.
+* View and comment the blog posts on the site.
+* A user should an email alert when a new post is made by joining a subscription.
+* Register to be allowed to log in to the application
+* A user sees random quotes on the site
+* A writer can create a blog from the application and update or delete blogs I have created.
+
+## BDD
+| Behaviour | Input | Output |
+| :---------------- | :---------------: | ------------------: |
+| Load the page | **On page load** | Get all blogs, Select between signup and login|
+| Select SignUp| **Email**,**Username**,**Password** | Redirect to login|
+| Select Login | **Username** and **password** | Redirect to page with blogs that have been posted by writes and be able to subscribe to the blog|
+| Select comment button | **Comment** | Form that you input your comment|
+| Click on submit |  | Redirect to all comments tamplate with your comment and other comments|
+|Subscription | **Email Address**| Flash message "Succesfully subsbribed to D-Blog"|
+
 
 ### Running the Application
 
@@ -32,8 +58,16 @@ Basic flask application starter files
 
 For any further inquiries or contributions or comments, reach me at [Caleb Kabaya](https://github.com/CalebKabaya)
 
+## Licence
 
-### License
+[MIT](LICENSE)
 
 
-Copyright (c) 2021
+[Go Back to the top](#description)
+
+## Authors Info
+Linked - Caleb Kabaya(hhttps://www.linkedin.com/in/caleb-kabaya-167676195/)
+
+Email - (calebkabaya7@gmail.com)
+
+[Go Back to the top](#description)
