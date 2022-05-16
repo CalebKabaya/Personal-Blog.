@@ -12,7 +12,10 @@ This is a personal blogging website where we create and share opinions and our u
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/CalebKabaya/CalebKabaya/Personal-Blog./Main/app/static/home.png" width="900px" height="440px">
+```
+Landing Page
+```
+<img src="./app/static/home.png">
 
 ## User Story
 
