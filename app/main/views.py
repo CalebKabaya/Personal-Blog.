@@ -129,7 +129,7 @@ def updateblog(blog_id):
     if request.method == 'GET':
         form.title.data = blog.title
         form.post.data = blog.post
-    return render_template('blog.html', form = form)
+    return render_template('edit.html', form = form)
 
 
 @main.route('/subscribe',methods = ['POST','GET'])
@@ -137,6 +137,7 @@ def subscribe():
     email = request.form.get('subscriber')
     new_subscriber = Subscriber(email = email)
     new_subscriber.save_subscriber()
-    mail_message("Subscribed to D-Blog","email/welcome_user",new_subscriber.email,new_subscriber=new_subscriber)
+    mail_message("Subscribed to KalebsBlog","email/welcome_user",new_subscriber.email,new_subscriber=new_subscriber)
     flash('Sucessfuly subscribed')
     return redirect(url_for('main.index'))
+
