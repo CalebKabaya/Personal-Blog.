@@ -12,7 +12,7 @@ This is a personal blogging website where we create and share opinions and our u
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/Owiti-Charles/D-Blog/master/app/static/home.png" width="900px" height="440px">
+<img src="https://raw.githubusercontent.com/CalebKabaya/CalebKabaya/Personal-Blog./Main/app/static/home.png" width="900px" height="440px">
 
 ## User Story
 
